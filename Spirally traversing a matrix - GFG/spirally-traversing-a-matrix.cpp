@@ -43,7 +43,8 @@ class Solution
                 }
                 left++;
             }
-            direction=(direction+1)%4;
+            direction=(direction+1)%4;//this is very interesting as we have to check above conditions also again
+            //I am very happy after solving this as this is entirely solved by me and now I am able to get confident in DSA
         }
         return ans;
         // code here 
