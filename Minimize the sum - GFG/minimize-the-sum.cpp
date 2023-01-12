@@ -20,7 +20,7 @@ public:
             pq.pop();
             int b=pq.top();
             pq.pop();
-            pq.push({a+b});
+            pq.push(a+b);
             ans+=(a+b);
         }
          return ans;
