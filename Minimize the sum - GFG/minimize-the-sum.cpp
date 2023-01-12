@@ -13,6 +13,7 @@ class Solution {
 public:
     int minimizeSum(int N, vector<int> arr) {
         // code here
+        //very beautiful question which take the use of priority queues.
         priority_queue<int,vector<int>,greater<int> > pq(arr.begin(),arr.end());//priority queue initialized with array elements and it will automatically store elements in sorted order.
         int ans=0;
         while(pq.size()>=2){
