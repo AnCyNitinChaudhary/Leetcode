@@ -9,6 +9,9 @@ using namespace std;
 
 class Solution {
   public:
+  //This is the hardest question which i have understood and tried to solve which uses 
+  // two new concepts of bitmasking and shift and or operators.
+  //I still need to revise it again.
     int minVal(int a, int b) {
         int setBitInA=setBit(a);
         int setBitInB=setBit(b);
