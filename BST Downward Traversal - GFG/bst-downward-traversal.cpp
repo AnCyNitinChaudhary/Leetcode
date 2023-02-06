@@ -34,6 +34,7 @@ struct Node {
 };
 */
 //The entire code is correct but even then my output is coming wrong and failing for testcases.
+
 // Node * targetAddress=NULL;
 // long long int answer=0;
 // void preorder(Node* &root,int target){
@@ -61,12 +62,13 @@ struct Node {
 //     long long int verticallyDownBST(Node *root,int target){
 //         // Code here
 //         preorder(root,target);
+//         if(targetAddress==NULL)return -1;
 //         //cout<<targetAddress->data;
 //         add(targetAddress,0);
 //         if(answer!=0)return answer-target;
 //         else return answer;
 //     }
-// };
+//  };
 class Solution{
 public:
 Node* targ;
