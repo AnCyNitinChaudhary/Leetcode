@@ -49,35 +49,48 @@ public:
 
 
     //Solving for Intuit practice-
-    void f(vector<int>&nums,vector<int>&temp,vector<vector<int>>&ans,vector<int>&freq){
-        if(temp.size()==nums.size()){
-            ans.push_back(temp);
+    // void f(vector<int>&nums,vector<int>&temp,vector<vector<int>>&ans,vector<int>&freq){
+    //     if(temp.size()==nums.size()){
+    //         ans.push_back(temp);
+    //         return;
+    //     }
+    //     for(int i=0;i<nums.size();i++){
+    //         if(!freq[i]){
+    //             freq[i]=1;
+    //             temp.push_back(nums[i]);
+    //             f(nums,temp,ans,freq);
+    //             temp.pop_back();
+    //             freq[i]=0;
+    //         }
+    //     }
+    // }
+    // vector<vector<int>> permute(vector<int>& nums) {
+    //     vector<vector<int>>ans;
+    //     vector<int>temp;
+    //     vector<int>freq(nums.size(),0);
+    //     f(nums,temp,ans,freq);
+    //     return ans;
+    // }
+
+
+
+//Swap approach without extra freq  space
+    void f(int index,vector<int>&nums,vector<vector<int>>&ans){
+        if(index==nums.size()){
+            ans.push_back(nums);
             return;
         }
-        for(int i=0;i<nums.size();i++){
-            if(!freq[i]){
-                freq[i]=1;
-                temp.push_back(nums[i]);
-                f(nums,temp,ans,freq);
-                temp.pop_back();
-                freq[i]=0;
-            }
+        for(int i=index;i<nums.size();i++){
+                swap(nums[i],nums[index]);
+                f(index+1,nums,ans);
+                swap(nums[i],nums[index]);
         }
     }
     vector<vector<int>> permute(vector<int>& nums) {
         vector<vector<int>>ans;
-        vector<int>temp;
-        vector<int>freq(nums.size(),0);
-        f(nums,temp,ans,freq);
+        f(0,nums,ans);
         return ans;
     }
-
-
-
-
-
-
-
 };
 
 
