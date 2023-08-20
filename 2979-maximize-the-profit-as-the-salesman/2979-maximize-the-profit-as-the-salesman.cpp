@@ -12,21 +12,21 @@ public:
 //         return max(take,notTake);
 // }
     
-    int maximum_profit(int n,vector<vector<int>>&intervals)
+    int maximum_profit(int n,vector<vector<int>>&events)
     {
-    vector<pair<int,pair<int,int>>> events;
-    for (int i=0;i<intervals.size();i++) {
-        events.push_back({ intervals[i][0],{ intervals[i][1], intervals[i][2]}});
-    }
+    // vector<pair<int,pair<int,int>>> events;
+    // for (int i=0;i<intervals.size();i++) {
+    //     events.push_back({ intervals[i][0],{ intervals[i][1], intervals[i][2]}});
+    // }
     priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>pq;
     sort(events.begin(), events.end());
     int max_profit=0;
     for(auto&e:events){
-        while(!pq.empty()&&pq.top().first<e.first) {
+        while(!pq.empty()&&pq.top().first<e[0]) {
             max_profit=max(max_profit,pq.top().second);
             pq.pop();
         }
-        pq.push({e.second.first,max_profit+e.second.second});
+        pq.push({e[1],max_profit+e[2]});
     }
     while(!pq.empty()){
         max_profit = max(max_profit,pq.top().second);
