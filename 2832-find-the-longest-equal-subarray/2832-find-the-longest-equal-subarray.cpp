@@ -14,15 +14,15 @@ public:
     // }
     int longestEqualSubarray(vector<int>& nums, int k){
         int left=0;
-        unordered_map<int,int>freqMap;
+        unordered_map<int,int>freq;
         int maxi=0;
         for (int right=0;right<nums.size();++right){
-            freqMap[nums[right]]++;
-            maxi=max(maxi,freqMap[nums[right]]);
+            freq[nums[right]]++;
+            maxi=max(maxi,freq[nums[right]]);
             int deletionsNeeded =(right-left+1)-maxi;
             
             while (deletionsNeeded>k){
-                freqMap[nums[left]]--;
+                freq[nums[left]]--;
                 left++;
                 deletionsNeeded=(right-left+1)-maxi; 
             }
